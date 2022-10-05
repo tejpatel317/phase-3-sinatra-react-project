@@ -30,9 +30,4 @@ ActiveRecord::Schema.define(version: 2022_10_03_232605) do
     t.date "due_date"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "logo"
-  end
-
 end
