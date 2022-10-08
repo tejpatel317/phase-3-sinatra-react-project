@@ -29,11 +29,18 @@ class ApplicationController < Sinatra::Base
 
   post "/employees" do
     employee = Employee.create(
-      first_name: params[:firstName],
-      last_name: params[:lastName],
-      position: params[:position]
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      position: params[:position],
       avatar: params[:avatar]
     )
+    params[:avaliable_projects].each do |e|
+      Assignment.create(
+        employee_id: employee.id,
+        project_id: e
+      )
+    end
+    
   end
 
 end
