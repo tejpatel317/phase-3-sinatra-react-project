@@ -28,6 +28,12 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/employees" do
+    employee = Employee.create(
+      first_name: params[:firstName],
+      last_name: params[:lastName],
+      position: params[:position]
+      avatar: params[:avatar]
+    )
   end
 
 end
