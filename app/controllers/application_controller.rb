@@ -24,8 +24,10 @@ class ApplicationController < Sinatra::Base
         employee_id: e
       )
     end
-
     project.to_json(include: :employees)
+  end
+
+  post "/employees" do
   end
 
 end
