@@ -17,7 +17,6 @@ class ApplicationController < Sinatra::Base
       detail: params[:detail],
       due_date: params[:due_date]
     )
-
     params[:project_employees].each do |e|
       Assignment.create(
         project_id: project.id,
@@ -40,7 +39,13 @@ class ApplicationController < Sinatra::Base
         project_id: e
       )
     end
-    
+    employee.to_json(include: :projects)
+  end
+
+  delete "/projects/:id" do
+    project = Project.find(params[:id])
+    project.destroy
+    project.to_json
   end
 
 end
