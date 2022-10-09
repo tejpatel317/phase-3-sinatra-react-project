@@ -48,4 +48,15 @@ class ApplicationController < Sinatra::Base
     project.to_json(include: :employees)
   end
 
+  patch "/projects/:id" do
+    project = Project.find(params[:id])
+    params[:project_employees].each do |e|
+      Assignment.create(
+        project_id: project.id,
+        employee_id: e
+      )
+    end
+    project.to_json(include: :employees)
+  end
+
 end
