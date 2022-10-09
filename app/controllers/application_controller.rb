@@ -45,7 +45,7 @@ class ApplicationController < Sinatra::Base
   delete "/projects/:id" do
     project = Project.find(params[:id])
     project.destroy
-    project.to_json
+    project.to_json(include: :employees)
   end
 
 end
