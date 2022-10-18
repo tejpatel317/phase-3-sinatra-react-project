@@ -50,6 +50,9 @@ class ApplicationController < Sinatra::Base
 
   patch "/projects/:id" do
     project = Project.find(params[:id])
+    project.update(name: params[:name])
+    project.update(detail: params[:detail])
+    project.update(due_date: params[:due_date])
     params[:project_employees].each do |e|
       Assignment.create(
         project_id: project.id,
