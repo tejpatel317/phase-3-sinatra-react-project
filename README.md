@@ -33,17 +33,17 @@ rake server
 
 ## Relationships
 
-# Employees
+### Employees
 
 - has many assignments
 - has many projects through assignments
 
-# Projects
+### Projects
 
 - has many assignments
 - has many employees through assignments
 
-# Assignments
+### Assignments
 
 - belongs to employee
 - belongs to project
